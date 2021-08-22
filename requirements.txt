@@ -1,7 +1,7 @@
 streamlit==0.75.0
 pandas==1.0.1
 numpy==1.18.1
-tensorflow_gpu==1.1.0
+tensorflow-gpu>=2.4.0
 gdown==3.13.0
 scikit_learn==0.24.2
 tensorflow==2.6.0
