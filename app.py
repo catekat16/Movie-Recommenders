@@ -4,7 +4,6 @@ import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
 import tensorflow as tf
-import cv2 
 from header import *
 from recommender import *
 from recommender2 import *
