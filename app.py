@@ -63,7 +63,7 @@ else:
   display_code_popular()
 
 recs = get_movie_recs(choice, movie, k)
-with st.sidebar.container():
+with st.sidebar:
   st.header("Recommendations Output:")
   get_app_response(recs)
   create_footer()

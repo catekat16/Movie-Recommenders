@@ -27,7 +27,7 @@ def create_header():
 )
 
 def create_footer():
-  with st.sidebar.container():
+  with st.sidebar:
     
     if st.button("🚀 Open in Colab"):
       cols = st.columns(3)
