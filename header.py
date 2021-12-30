@@ -30,7 +30,7 @@ def create_footer():
   with st.sidebar:
     
     if st.button("🚀 Open in Colab"):
-      cols = st.columns(3)
+      #cols = st.betacolumns(3)
       link1 = '[Notebook 1](https://colab.research.google.com/drive/1KyI_idhD9tWxCjHDohxuq1qXwTzoAyoY)'
       st.markdown(link1, unsafe_allow_html=True)
       link2 = '[Notebook 2](https://colab.research.google.com/drive/1f-gb5kMhZvDnmlx5JL9jE4oGcaemXsvT)'

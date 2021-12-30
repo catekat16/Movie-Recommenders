@@ -24,7 +24,7 @@ def get_movie_recs(rec_method, movie, K):
 
 choice = st.radio("Choose recommendation method: ", ["Popular Movies", "Content-Based Recommendation", "Collaborative Recommendation"])
 if choice == "Content-Based Recommendation":
-  left_column, right_column = st.columns(2)
+  left_column, right_column = st.beta_columns(2)
   with left_column:
     k = st.slider("Pick a value for K", 1, 20)
   with right_column:
@@ -36,7 +36,7 @@ if choice == "Content-Based Recommendation":
   display_code_content()
 elif choice == "Collaborative Recommendation":
   k = st.slider("Pick a value for K", 1, 20)
-  left_column, right_column = st.columns(2)
+  left_column, right_column = st.beta_columns(2)
   with left_column:
     select = st.multiselect("Pick seven movies", movies["title"], default = None)
     if select == []:
