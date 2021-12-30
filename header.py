@@ -37,7 +37,7 @@ def create_footer():
       st.markdown(link2, unsafe_allow_html=True)
       link3 = '[Notebook 3](https://colab.research.google.com/drive/1RS3GmGfFjAdBaf72-Yxxr9Foua-uDCQ6)'
       st.markdown(link3, unsafe_allow_html=True)
-    st.caption("Notebooks made with ❤️ by Inspirit AI")
+    st.write("Notebooks made with ❤️ by Inspirit AI")
 
 def display_code_popular():
   with maybe_echo():
