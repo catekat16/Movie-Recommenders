@@ -28,10 +28,7 @@ def weighted_rating(x, m=minimum_votes, C=mean_average_vote):
 
 movie_data['score'] = movie_data.apply(weighted_rating, axis=1)
 
-#################################################################
-# If you want to change your features, do it in the line below! #
-#################################################################
-features = ['keywords','cast','genres','director']
+features = ['keywords','cast','genres','director'] # change features as desired
 
 def combine_features(row):
     combined_row = ''
@@ -65,6 +62,8 @@ def k_most_similar_movies(movie, K):
   movie_names = []
   for index in similar_movies:
     movie_names.append(find_title_from_index(index))
+  print(movie_names)
+  movie_names = {"movie titles": movie_names}
   return pd.DataFrame(movie_names)
 
 

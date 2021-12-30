@@ -5,6 +5,7 @@ import gdown
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from utils import * 
 
 m_data_url = 'https://storage.googleapis.com/inspirit-ai-data-bucket-1/Data/AI%20Pioneers/Recommender%20System/movies.csv'
 m_data_path = './movies.csv'
@@ -53,6 +54,7 @@ def estimate_ratings(sim_user_ratings):
     inx+=1
   return top10usersdf
 
+
 def colb_filter(rated_movies, ratings_for_movies, K):
   if len(ratings_for_movies)==0:
     avg = 0
@@ -71,13 +73,18 @@ def colb_filter(rated_movies, ratings_for_movies, K):
   top_recs.sort(key=lambda x:x[1], reverse=True)
 
   columns = estimated_ratings.columns
+  print(columns)
   recs = []
   for rec, val in top_recs:
     if len(recs)>K:
       break
     else:
       if columns[rec] not in rated_movies:
-        recs.append(columns[rec])
+        movie_name = format_movie(columns[rec])
+        recs.append(movie_name)
   if len(recs)==0:
     recs = "We couldn't find any movies with high estimated ratings for you!"
+  else:
+    recs = {"movie titles": recs}
+    recs = pd.DataFrame(recs) # sometimes will be the string message case 
   return recs

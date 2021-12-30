@@ -4,11 +4,12 @@ import streamlit.components.v1 as components
 import pandas as pd
 import numpy as np
 import tensorflow as tf
-#import cv2 
+import cv2 
 from header import *
 from recommender import *
 from recommender2 import *
 from response import *
+from utils import * 
 
 create_header()
 
@@ -22,7 +23,6 @@ def get_movie_recs(rec_method, movie, K):
     if movie is not None:
       return colb_filter(movie[0], movie[1], K)
 
-
 choice = st.radio("Choose recommendation method: ", ["Popular Movies", "Content-Based Recommendation", "Collaborative Recommendation"])
 if choice == "Content-Based Recommendation":
   left_column, right_column = st.columns(2)
@@ -34,6 +34,7 @@ if choice == "Content-Based Recommendation":
       movie = None
     else:
       movie = select[0]
+  display_code_content()
 elif choice == "Collaborative Recommendation":
   k = st.slider("Pick a value for K", 1, 20)
   left_column, right_column = st.columns(2)
@@ -56,9 +57,14 @@ elif choice == "Collaborative Recommendation":
     movie = [movie, rate]
   else:
     movie = None
+  display_code_collab()
 else:
   k = st.slider("Pick how many movies you want to see!", 1, 20)
   movie = None
+  display_code_popular()
 
 recs = get_movie_recs(choice, movie, k)
-get_app_response(recs)
+with st.sidebar.container():
+  st.header("Recommendations Output:")
+  get_app_response(recs)
+  create_footer()
