@@ -1,4 +1,4 @@
-# Movie-Recommenders
+# Movie-Recommenders 🎬🍿🎟
 
 An exercise in popular recommendations, content-based filtering, and collaborative filtering.
 
